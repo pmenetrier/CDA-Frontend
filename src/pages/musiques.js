@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+import SearchBox from '../search-box/search-box'
 import CardList from '../card-list/card-list'
 
 import './items.css'
@@ -40,7 +40,7 @@ const Musiques = () => {
 
 return(
     <div className="root-item" >
-    <h1>Ma musique</h1>
+    <SearchBox />
     <CardList oeuvres={musiques} />
     </div>
 

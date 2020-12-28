@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+import SearchBox from '../search-box/search-box'
 import CardList from '../card-list/card-list'
 
 import './items.css'
@@ -47,7 +47,7 @@ const Films = () => {
 
 return(
     <div className="root-item" >
-    <h1>Mes films</h1>
+    <SearchBox />
     <CardList oeuvres={films} />
     </div>
 
