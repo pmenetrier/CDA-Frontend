@@ -1,6 +1,9 @@
 import React from 'react'
 
+
 import CardList from '../card-list/card-list'
+
+import './items.css'
 
 let musiques = [
     {
@@ -8,7 +11,7 @@ let musiques = [
         auteur: "Daft Punk",
         annee: 2013,
         titre: "Get lucky",
-        imageUrl: "https://www.sakafetmatinik.fr/wp-content/uploads/2016/10/hqdefault-598.jpg"
+        imageUrl: "https://cdn-www.konbini.com/fr/images/files/2013/12/get-lucky-daft-punk.png"
     },
     {
         id : "2",
@@ -36,9 +39,9 @@ let musiques = [
 const Musiques = () => {
 
 return(
-    <div>
+    <div className="root-item" >
     <h1>Ma musique</h1>
-    <CardList />
+    <CardList oeuvres={musiques} />
     </div>
 
 )

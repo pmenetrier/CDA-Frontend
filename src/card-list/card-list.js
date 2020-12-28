@@ -1,12 +1,19 @@
 import React from 'react'
 
+import './card-list.css'
+import Card from '../card/card'
 
 
-const CardList = () => {
 
-    return (
-        <h1>Liste des musiques</h1>
-    )
-}
+const CardList = (props) => (
+        <div className="card-list">
+            { props.oeuvres.map((o, i) => (
+                    <Card key={o.i} oeuvre={o} />
+                    )
+                )
+            }
+
+        </div>
+)
 
 export default CardList
