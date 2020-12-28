@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import SearchBox from '../search-box/search-box'
 import CardList from '../card-list/card-list'
@@ -44,11 +44,19 @@ let films = [
 ]
 
 const Films = () => {
+    const [searchField, setSearchField] = useState('')
 
+const onSearchChange = event => {
+    setSearchField(event.target.value)
+}
+
+const filteredFilms = films.filter(film => 
+    film.titre.toLowerCase().includes(searchField.toLowerCase())  
+    )
 return(
     <div className="root-item" >
-    <SearchBox />
-    <CardList oeuvres={films} />
+    <SearchBox onSearch={onSearchChange} />
+    <CardList oeuvres={filteredFilms} />
     </div>
 
 )

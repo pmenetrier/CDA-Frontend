@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import SearchBox from '../search-box/search-box'
 import CardList from '../card-list/card-list'
@@ -37,15 +37,32 @@ let musiques = [
 ]
 
 const Musiques = () => {
+    //Déclaration de la variable searchField en tant que STATE
+    const [searchField, setSearchField] = useState('')
+    //autre exemple
+    //const [maRecherche, setMaRecherche] = useState("ma valeur par défaut")
 
+const onSearchChange = event => {
+    //Mise à jour de searchField
+    setSearchField(event.target.value)
+}
+
+//Filtre les éléments selon ce qui est saisie dans searchField
+const filteredMusiques = musiques.filter(musique => 
+        musique.titre.toLowerCase().includes(searchField.toLowerCase())  
+    )
+
+    
 return(
     <div className="root-item" >
-    <SearchBox />
-    <CardList oeuvres={musiques} />
+    
+    {/* Affichage de la SearchBox et passage de fonction de recherche onSearchChange à l'enfant */}
+    <SearchBox onSearch={onSearchChange} />
+
+    {/* Affichage du CardList et passage de la liste filtrée des éléments */}
+    <CardList oeuvres={filteredMusiques} />
     </div>
-
 )
-
 }
 
 export default Musiques;

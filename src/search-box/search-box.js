@@ -2,12 +2,12 @@ import React from 'react'
 
 import './search-box.css'
 
-const SearchBox = () => (
+const SearchBox = props => (
     <input 
         className="search-box"
         type="search"
-        placeholder="rechercher un artiste"
-    
+        placeholder="rechercher un titre"
+        onChange={props.onSearch}
     />
 )
 

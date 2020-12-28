@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Musiques from './pages/musiques'
 import Films from './pages/films'
 import Header from './header/header'
+import UpdateItem from './pages/updateItem'
 
 import './App.css';
 
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route path="/films" exact>
           <Films />
+        </Route>
+        <Route path="/maj" exact>
+          <UpdateItem  />
         </Route>
       </Router>
     </div>
