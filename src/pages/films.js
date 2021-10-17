@@ -25,14 +25,14 @@ let films = [
                 auteur: "Alain Chabat",
                 annee: 2002,
                 titre: "Astérix et Obélix : mission Cléopâtre",
-                imageUrl: "https://www.objectiffestival.fr/blog/wp-content/uploads/2017/10/asterix-et-obelix-mission-cleopatre-a07.jpg"
+                imageUrl: "https://i.ytimg.com/vi/7Nd1ZCwB5PI/maxresdefault.jpg"
             },
             {
                 id : 5,
                 auteur: "James Cameron",
                 annee: 2009,
                 titre: "Avatar",
-                imageUrl: "https://statics.lesinrocks.com/content/thumbs/uploads/2019/12/07/1448140/width-1200-height-630-watermark-2/avatar.jpg"
+                imageUrl: "https://m.media-amazon.com/images/M/MV5BMTcxOTk4NzkwOV5BMl5BanBnXkFtZTcwMDE3MTUzNA@@._V1_.jpg"
             },
             {
                 id : 6,

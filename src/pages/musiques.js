@@ -11,7 +11,7 @@ let musiques = [
         auteur: "Daft Punk",
         annee: 2013,
         titre: "Get lucky",
-        imageUrl: "https://cdn-www.konbini.com/fr/images/files/2013/12/get-lucky-daft-punk.png"
+        imageUrl: "https://images-na.ssl-images-amazon.com/images/I/61cjEm5meDL._SL1500_.jpg"
     },
     {
         id : "2",
