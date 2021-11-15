@@ -56,7 +56,7 @@ const filteredFilms = films.filter(film =>
 return(
     <div className="root-item" >
     <SearchBox onSearch={onSearchChange} message="Rechercher un titre" />
-    <CardList oeuvres={filteredFilms} />
+    <CardList oeuvres={filteredFilms} route="films" />
     </div>
 
 )

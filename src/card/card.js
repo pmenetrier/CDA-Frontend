@@ -24,7 +24,7 @@ const Card = (props) => {
             <div className="card-item__actions">
                 <ul>
                     <li>
-                        <button><NavLink to={`/musiques/${props.oeuvre.id}`} >Editer</NavLink></button>
+                        <button><NavLink to={`/${props.route}/${props.oeuvre.id}`} >Editer</NavLink></button>
                     </li>
                     <li>
                         <button onClick={confirmDeleteHandler}>Supprimer</button>

@@ -23,7 +23,10 @@ function App() {
           <Films />
         </Route>
         <Route path="/musiques/:oeuvreId" exact>
-          <UpdateItem  />
+          <UpdateItem route="musiques" />
+        </Route>
+        <Route path="/films/:oeuvreId" exact>
+          <UpdateItem route="films" />
         </Route>
       </Router>
     </div>

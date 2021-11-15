@@ -28,15 +28,20 @@ useEffect(() => {
 
 async function fetchData(){
   let response = await fetch(
-    'http://localhost:5000/api/musiques/' + myOeuvreId
+    `http://localhost:5000/api/${props.route}/${myOeuvreId}`
   );
   response = await response.json();
-  setForm(response.musique);
+  if(props.route === "musiques"){
+    setForm(response.musique);
+  } else {
+    setForm(response.film);
+  }
+  
 
 }
 fetchData();
 
-}, [myOeuvreId])
+}, [myOeuvreId, props.route])
 
 const itemUpdateSubmitHandler = async (event) => {
   event.preventDefault();
@@ -44,7 +49,7 @@ const itemUpdateSubmitHandler = async (event) => {
     try {
       // console.log(myOeuvreId);
       await fetch(
-        'http://localhost:5000/api/musiques/' + myOeuvreId,
+        `http://localhost:5000/api/${props.route}/${myOeuvreId}`,
         {
           method: "PATCH",
           headers: {
@@ -61,7 +66,7 @@ const itemUpdateSubmitHandler = async (event) => {
     } catch(err) {
         console.log(err);
     }
-    history.push('/musiques');
+    history.push(`/${props.route}`);
   }
   updateData();
 

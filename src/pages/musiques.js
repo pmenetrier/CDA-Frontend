@@ -45,28 +45,25 @@ const Musiques = () => {
   //const [maRecherche, setMaRecherche] = useState("ma valeur par défaut")
 
   useEffect(() => {
-    fetch(
-      "http://localhost:5000/api/musiques",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
+    fetch("http://localhost:5000/api/musiques", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.status !== 200 && res.status !== 201) {
+          throw new Error("Erreur de statut");
+        }
+        console.log({ res });
+        return res.json();
       })
-        .then((res) => {
-          if (res.status !== 200 && res.status !== 201) {
-            throw new Error("Erreur de statut");
-          }
-          console.log({res});
-          return res.json();
-        })
-        .then((res) => {
-          setMusiques(res.musiques);
-        })
-        .catch((error) => {
-          console.log(error);
-        })
-    
+      .then((res) => {
+        setMusiques(res.musiques);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   const onSearchChange = (event) => {
@@ -85,17 +82,20 @@ const Musiques = () => {
   );
 
   const filteredMusiquesBis = filteredMusiques.filter((musique) =>
-  musique.auteur.toLowerCase().includes(searchFieldAuteur.toLowerCase())
-);
+    musique.auteur.toLowerCase().includes(searchFieldAuteur.toLowerCase())
+  );
 
   return (
     <div className="root-item">
       {/* Affichage de la SearchBox et passage de fonction de recherche onSearchChange à l'enfant */}
       <SearchBox onSearch={onSearchChange} message="Rechercher un titre" />
-      <SearchBox onSearch={onSearchAuteurChange} message="Rechercher un auteur" />
+      <SearchBox
+        onSearch={onSearchAuteurChange}
+        message="Rechercher un auteur"
+      />
 
       {/* Affichage du CardList et passage de la liste filtrée des éléments */}
-      <CardList oeuvres={filteredMusiquesBis} />
+      <CardList oeuvres={filteredMusiquesBis} route="musiques" />
     </div>
   );
 };
