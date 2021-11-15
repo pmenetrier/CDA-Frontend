@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import SearchBox from "../search-box/search-box";
 import CardList from "../card-list/card-list";
@@ -85,6 +86,12 @@ const Musiques = () => {
     musique.auteur.toLowerCase().includes(searchFieldAuteur.toLowerCase())
   );
 
+  const itemDeleteHandler = (deleteItemId) => {
+    setMusiques((prevMusiques) =>
+      prevMusiques.filter((musique) => musique.id !== deleteItemId)
+    );
+  };
+
   return (
     <div className="root-item">
       {/* Affichage de la SearchBox et passage de fonction de recherche onSearchChange à l'enfant */}
@@ -93,9 +100,16 @@ const Musiques = () => {
         onSearch={onSearchAuteurChange}
         message="Rechercher un auteur"
       />
+      <button className="root-item__button">
+        <Link to="/musique/new">Ajouter</Link>
+      </button>
 
       {/* Affichage du CardList et passage de la liste filtrée des éléments */}
-      <CardList oeuvres={filteredMusiquesBis} route="musiques" />
+      <CardList
+        oeuvres={filteredMusiquesBis}
+        onDeleteItem={itemDeleteHandler}
+        route="musiques"
+      />
     </div>
   );
 };

@@ -3,10 +3,10 @@ import {useParams, useHistory } from 'react-router-dom';
 
 import './updateItem.css';
 
-const itemUpdateSubmitHandler = event => {
-    console.log("Validation formulaire")
-    console.log(event)
-}
+// const itemUpdateSubmitHandler = event => {
+//     console.log("Validation formulaire")
+//     console.log(event)
+// }
 
 const UpdateItem = props => {
 
