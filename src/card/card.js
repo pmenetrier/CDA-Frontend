@@ -11,7 +11,7 @@ const Card = (props) => {
     }
 
     return (
-        <div className="card-container">
+        <div className="card-container" >
             <img
                 alt="Oeuvre"
                 className="image"
@@ -24,7 +24,7 @@ const Card = (props) => {
             <div className="card-item__actions">
                 <ul>
                     <li>
-                        <button><NavLink to="/maj">Editer</NavLink></button>
+                        <button><NavLink to={`/musiques/${props.oeuvre.id}`} >Editer</NavLink></button>
                     </li>
                     <li>
                         <button onClick={confirmDeleteHandler}>Supprimer</button>

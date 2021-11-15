@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import {useParams, useHistory } from 'react-router-dom';
 
 import './updateItem.css';
 
@@ -19,6 +20,52 @@ const UpdateItem = props => {
 
     // Création d'un State de gestion des erreurs de saisie du formulaire
     const [errors, setErrors ]= useState({});
+    // const [oeuvre, setOeuvre] = useState({});
+    const myOeuvreId = useParams().oeuvreId;
+    const history = useHistory();
+
+useEffect(() => {
+
+async function fetchData(){
+  let response = await fetch(
+    'http://localhost:5000/api/musiques/' + myOeuvreId
+  );
+  response = await response.json();
+  setForm(response.musique);
+
+}
+fetchData();
+
+}, [myOeuvreId])
+
+const itemUpdateSubmitHandler = async (event) => {
+  event.preventDefault();
+  async function updateData() {
+    try {
+      // console.log(myOeuvreId);
+      await fetch(
+        'http://localhost:5000/api/musiques/' + myOeuvreId,
+        {
+          method: "PATCH",
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            titre: form.titre,
+            annee: form.annee,
+            auteur: form.auteur,
+            imageUrl: form.imageUrl
+          })
+        }
+      )
+    } catch(err) {
+        console.log(err);
+    }
+    history.push('/musiques');
+  }
+  updateData();
+
+};
 
 
     //Gestion de la maj de chaque propriété du formulaire

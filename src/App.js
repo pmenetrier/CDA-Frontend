@@ -22,7 +22,7 @@ function App() {
         <Route path="/films" exact>
           <Films />
         </Route>
-        <Route path="/maj" exact>
+        <Route path="/musiques/:oeuvreId" exact>
           <UpdateItem  />
         </Route>
       </Router>
