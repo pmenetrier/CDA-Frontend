@@ -5,8 +5,8 @@ import "./updateItem.css";
 
 const NewItem = (props) => {
   const [form, setForm] = useState({
-    id: "__" + Math.random().toString(16).slice(-4),
-    typeItem: "",
+    // id: "__" + Math.random().toString(16).slice(-4),
+    // typeItem: "",
     titre: "",
     annee: "",
     auteur: "",

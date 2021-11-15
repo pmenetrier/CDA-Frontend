@@ -6,6 +6,7 @@ import Header from './header/header'
 import UpdateItem from './pages/updateItem'
 
 import './App.css';
+import NewItem from './pages/newItem'
 
 function App() {
   return (
@@ -27,6 +28,12 @@ function App() {
         </Route>
         <Route path="/films/:oeuvreId" exact>
           <UpdateItem route="films" />
+        </Route>
+        <Route path="/musique/new" exact >
+          <NewItem route="musiques" />
+        </Route>
+        <Route path="/film/new" exact >
+          <NewItem route="films" />
         </Route>
       </Router>
     </div>
